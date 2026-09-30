@@ -402,6 +402,15 @@ status_t EP_Init(ep_handle_t *handle, uint8_t *macAddr, const ep_config_t *confi
 status_t EP_Deinit(ep_handle_t *handle);
 
 /*!
+ * @brief Get the idle Tx BD number in the ring
+ * @note The last BD before producer index should be treated as an used BD according to hardware design.
+ *
+ * @param txBdRing  The EP handle.
+ * @return The idle BD number.
+ */
+uint16_t EP_GetIdleTxBDNum(netc_tx_bdr_t *txBdRing);
+
+/*!
  * @brief Get the default configuration.
  *
  * @param config

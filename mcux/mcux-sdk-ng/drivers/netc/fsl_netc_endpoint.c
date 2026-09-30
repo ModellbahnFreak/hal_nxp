@@ -399,14 +399,7 @@ static status_t EP_MSIXSetEntryTable(ep_handle_t *handle, const ep_config_t *con
     return kStatus_Success;
 }
 
-/*!
- * @brief Get the idle Tx BD number in the ring
- * @note The last BD before producer index should be treated as an used BD according to hardware design.
- *
- * @param txBdRing  The EP handle.
- * @return The idle BD number.
- */
-static uint16_t EP_GetIdleTxBDNum(netc_tx_bdr_t *txBdRing)
+uint16_t EP_GetIdleTxBDNum(netc_tx_bdr_t *txBdRing)
 {
     if (txBdRing->producerIndex >= txBdRing->cleanIndex)
     {
